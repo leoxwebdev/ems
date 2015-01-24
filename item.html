@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Plantation Bay Resort and Spa</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="css/ems.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script> ( function ( $ ) { "use strict"; var oldIE; if ($('html').is('.ie6, .ie7, .ie8, .ie9')) { oldIE = true; } if (oldIE) { window.location.href="http://plantationbay.com/"; } if ( localStorage ){ if ( !localStorage.emsleo ){ window.location.href="index.html"; } } else { console.log( "Login not allowed"); } }( jQuery ) ); </script>
+	<script type="text/javascript" src="js/ems.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+<!-- Item Entry Page -->
+<div data-role="page" id="Item" class="home">
+	<div class="headContent">
+		<a href="index.html" data-ajax="false" id="inOrout">LOG OUT</a>
+		<div class="headDivs">
+			<div class="pbaylogo"><img src="images/pbaylogo.png"</img></div>
+			<div id="nameDiv"><h1 id="pmsName">Property Management System</h1></div>
+		</div>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="pms.html"><span>PMS</span></a></li>
+			<li><a href="#"><span>JOB ORDER</span></a></li>
+			<li><a href="#"><span>REPORTS</span></a></li>
+			<li><a href="#"><span>ITEM</span></a>
+				<ul class="sub-menu">
+					<li><a href="item.html">Data Entry</a></li>
+					<li><a href="itemlookup.html">Item Lookup</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span>PARAMETERS</span></a>
+				<ul class="sub-menu">
+					<li><a href="itemgroup.html">ITEM GROUP</a></li>
+					<li><a href="locationovergroup.html">OVER GROUP</a></li>
+					<li><a href="locationmajorgroup.html">MAJOR GROUP</a></li>
+					<li><a href="locationgroup.html">LOCATION</a></li>
+					<li><a href="itemdepartment.html">DEPARTMENTS</a></li>
+					<li><a href="#">USERS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div data-role="content">
+
+		<h2>DATA ENTRY</h2>
+
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">Item Details</h3>
+			<div>
+				<div class="clsItemDetails"><label for="itemOverLocation">Over group <span class="iRedtext iBold iTop">* </span></label><select id="itemOverLocation" name="itemOverLocation" class="kinahanglan ui-mini" required><option value="" selected>Location Over Group</option></select></div>
+				<div class="clsItemDetails"><label for="itemDept">Accountable department <span class="iRedtext iBold iTop">* </span></label><select id="itemDept" name="itemDept" class="kinahanglan ui-mini" required><option value="" selected>Department</option></select></div>
+				<div class="clsItemDetails"><label for="itemMajorLocation">Building / Major location <span class="iRedtext iBold iTop">* </span></label><select id="itemMajorLocation" name="itemMajorLocation" class="kinahanglan ui-mini" required><option value="" selected>Location Major Group</option></select></div>
+				<div class="clsItemDetails"><label for="itemLocation">Location <span class="iRedtext iBold iTop">* </span></label><select id="itemLocation" name="itemLocation" class="kinahanglan ui-mini" required><option value="" selected>Location</option></select></div>
+				<div class="clsItemDetails"><label for="itemLabel">Label </label><input type="text" id="itemLabel" name="itemLabel" placeholder="Specific location or Item grouping (optional)"></input></div>
+				<div class="clsItemDetails"><label for="itemGroup">Item group<span class="iRedtext iBold iTop">* </span></label><select id="itemGroup" name="itemGroup" class="kinahanglan ui-mini" required><option value="" selected>Item Group</option></select></div>
+				<div class="clsItemDetails"><label for="itemOnly">Group/Set item</label><select id="itemOnly" name="itemOnly" class="ui-mini"><option value="" selected>N/A </option></select></div>
+				<div class="clsItemDetails"><label for="itemBrand">Brand<span class="iRedtext iBold iTop">* </span></label><input type="text" id="itemBrand" name="itemBrand" class="kinahanglan" required></input></div>
+				<div class="clsItemDetails"><label for="itemModel">Model number <span class="iRedtext iBold iTop">* </span></label><input type="text" id="itemModel" name="itemModel" class="kinahanglan" required></input></div>
+				<div class="clsItemDetails"><label for="itemSerial">Serial number <span class="iRedtext iBold iTop">* </span></label><input type="text" id="itemSerial" name="itemSerial" class="kinahanglan" required></input></div>
+				<div style="float: right;"><label style="font:bold 10px Arial; margin-bottom: 0;"><span class="iRedtext iBold iTop">*</span> = Required fields </label></div>
+			</div>
+		</div>
+		
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">Item more details</h3>
+			<div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail1" id="D1">Details 1</label><input type="text" id="itemDetail1" name="itemDetail1"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail2" id="D2">Details 2</label><input type="text" id="itemDetail2" name="itemDetail2"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail3" id="D3">Details 3</label><input type="text" id="itemDetail3" name="itemDetail3"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail4" id="D4">Details 4</label><input type="text" id="itemDetail4" name="itemDetail4"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail5" id="D5">Details 5</label><input type="text" id="itemDetail5" name="itemDetail5"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail6" id="D6">Details 6</label><input type="text" id="itemDetail6" name="itemDetail6"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail7" id="D7">Details 7</label><input type="text" id="itemDetail7" name="itemDetail7"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemDetail8" id="D8">Details 8</label><input type="text" id="itemDetail8" name="itemDetail8"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemPurchaseDate">Purchased date </label><input type="date" id="itemPurchaseDate" name="itemPurchaseDate"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemSupplier">Supplier </label><input type="text" id="itemSupplier" name="itemSupplier"></input></div>
+				<div class="clsInputs">&nbsp; &nbsp; &nbsp;<label for="itemAssetId">Asset_Id </label><input type="text" id="itemAssetId" name="itemAssetId"></input></div>
+			</div>
+		</div>
+	
+		<div id="itemNewBtns" class="btnGroup">
+			<div><button id="ItemAdd" >Add</button></div>
+			<div><button id="ItemEdit" disabled>Edit</button></div>
+			<div><button id="ItemDelete" disabled>Delete</button></div>
+			<div><button id="ItemCancel" disabled>Cancel</button></div>
+		</div>
+		
+	</div> <!-- End content -->
+   
+	<div data-role="footer">
+		<div class="CopyRight">
+			&copy;2014 <a href="http://www.plantationbay.com/english">Plantation Bay Resort and Spa</a>. All rights reserved. Web hosting, Design and development by 
+			<a href="http://www.plantationbay.com/english" target="_blank">Leox.</a>
+		</div>			
+	</div>   
+</div>
+</body>
+</html>

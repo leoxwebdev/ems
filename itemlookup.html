@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+	<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+	<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+	<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+	<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Plantation Bay Resort and Spa</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="css/ems.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script> ( function ( $ ) { "use strict"; var oldIE; if ($('html').is('.ie6, .ie7, .ie8, .ie9')) { oldIE = true; } if (oldIE) { window.location.href="http://plantationbay.com/"; } if ( localStorage ){ if ( !localStorage.emsleo ){ window.location.href="index.html"; } } else { console.log( "Login not allowed"); } }( jQuery ) ); </script>	
+	<script type="text/javascript" src="js/ems.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+<!-- Item Entry Page -->
+<div data-role="page" id="itemlookup">
+	<div class="headContent">
+		<a href="index.html" data-ajax="false" id="inOrout">LOG OUT</a>
+		<div class="headDivs">
+			<div class="pbaylogo"><img src="images/pbaylogo.png"</img></div>
+			<div id="nameDiv"><h1 id="pmsName">Property Management System</h1></div>
+		</div>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="pms.html"><span>PMS</span></a></li>
+			<li><a href="#"><span>JOB ORDER</span></a></li>
+			<li><a href="#"><span>REPORTS</span></a></li>
+			<li><a href="#"><span>ITEM</span></a>
+				<ul class="sub-menu">
+					<li><a href="item.html">Data Entry</a></li>
+					<li><a href="itemlookup.html">Item Lookup</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span>PARAMETERS</span></a>
+				<ul class="sub-menu">
+					<li><a href="itemgroup.html">ITEM GROUP</a></li>
+					<li><a href="locationovergroup.html">OVER GROUP</a></li>
+					<li><a href="locationmajorgroup.html">MAJOR GROUP</a></li>
+					<li><a href="locationgroup.html">LOCATION</a></li>
+					<li><a href="itemdepartment.html">DEPARTMENTS</a></li>
+					<li><a href="setnames.html">ITEM SET NAMES</a></li>
+					<li><a href="#">USERS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div data-role="content">
+	
+		<h2>ITEM LOOKUP</h2>
+
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">LOOKUP</h3>
+			<div>
+				<div class="clsitemSearch"><label for="itemlookupOverLocation">Over group </label><select id="itemlookupOverLocation" name="itemlookupOverLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemlookupDept">Accountable department</label><select id="itemlookupDept" name="itemlookupDept"><option value="1" selected>ALL</option></select></div>				
+				<div class="clsitemSearch"><label for="itemlookupMajorLocation">Building / Major location</label><select id="itemlookupMajorLocation" name="itemlookupMajorLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemlookupLocation">Location</label><select id="itemlookupLocation" name="itemlookupLocation" disabled><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemlookupItemGroup">Item group</label><select id="itemlookupItemGroup" name="itemlookupItemGroup"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemlookupItemBrand">Brand</label><input type="search" id="itemlookupItemBrand" name="itemlookupItemBrand"></input></div>
+				<div class="clsitemSearch"><label for="itemlookupItemModel">Model number</label><input type="search" id="itemlookupItemModel" name="itemlookupItemModel"></input></div>
+				<div class="clsitemSearch"><label for="itemlookupItemSerial">Serial number</label><input type="search" id="itemlookupItemSerial" name="itemlookupItemSerial"></input></div>
+				<div id="pmsNewBtns" class="btnGroup"><div><button id="itemSearch" data-icon="search" data-iconpos="right">SEARCH</button></div></div>
+			</div>
+		</div>
+		
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">ITEMS - Search Result(s)</h3>
+			<div class="ItemsDiv">
+				<table id="ItemsLists" class="clstableItemLookup"></table>
+					<!--<thead>
+						<tr>
+							<th>#</th>
+							<th>Location</th>
+							<th>Label</th>							
+							<th>Item name</th>
+						</tr>
+					</thead>-->
+			</div>
+		</div>
+
+		<div data-role="popup" id="lookupActionPop" data-position-to="window" data-transition='pop' class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<h3 class="ui-bar ui-bar-a">ITEM DETAILS</h3>
+			<div class="iCenterAdust">
+				<div class="IpatungaInlineBlock">
+					<table class="itemActionTable clstablePop">
+						<tbody id="ActionDetails1">
+							<tr><td>Location</td><td id="valLocation"></td></tr>
+							<tr><td>Label</td><td id="valLabel"></td></tr>
+							<tr><td>Brand</td><td id="valBrand"></td></tr>
+							<tr><td>PMS Interval</td><td id="valInterval"></td></tr>
+							<tr><td>Model</td><td id="valModel"></td></tr>
+							<tr><td>Serial</td><td id="valSerial"></td></tr>
+							<tr><td>Purc. date</td><td id="valPurchasedate"></td></tr>
+							<tr><td>Supplier</td><td id="valSupplier"></td></tr>
+						</tbody>
+					</table>	
+				</div>
+
+				<div class="IpatungaInlineBlock">
+					<table class="itemActionTable clstablePop">
+						<tbody id="ActionDetails2">
+							<tr><td id="lblDetail1">Detail1</td><td id="valDetail1"></td></tr>
+							<tr><td id="lblDetail2">Detail2</td><td id="valDetail2"></td></tr>
+							<tr><td id="lblDetail3">Detail3</td><td id="valDetail3"></td></tr>
+							<tr><td id="lblDetail4">Detail4</td><td id="valDetail4"></td></tr>
+							<tr><td id="lblDetail5">Detail5</td><td id="valDetail5"></td></tr>
+							<tr><td id="lblDetail6">Detail6</td><td id="valDetail6"></td></tr>
+							<tr><td id="lblDetail7">Detail7</td><td id="valDetail7"></td></tr>
+							<tr><td id="lblDetail8">Detail8</td><td id="valDetail8"></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="spacer15px"></div>
+			<div class="iCenterAdust">			
+				<a href="#" id="itemDetailsEdit" itemId="" isEditFromDetails="" class="IpatungaInlineBlock" data-role="button" data-icon="edit" data-iconpos="right">Edit</a>
+				<a href="#" id="itemDetailsMove" itemId="" isMoveFromDetails=""  class="IpatungaInlineBlock" data-role="button" data-icon="navigation" data-iconpos="right">Move</a>
+				<a href="#" class="IpatungaInlineBlock" data-role="button" data-icon="forbidden" data-iconpos="right">Decommission</a>
+			</div>
+			<a href="#" data-rel="back" data-role="button" data-icon="back" data-iconpos="left">Close</a>
+		</div>
+
+		<div data-role="popup" id="ActionEditPop" data-position-to="window" data-transition='pop' class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>			
+			<h3 class="ui-bar ui-bar-a">EDIT ITEM DETAILS</h3>
+			<div class="iCenterAdust">
+				<div class="IpatungaInlineBlock">
+					<table class="itemActionTable clstablePop">
+						<tbody id="EditActionDetails1">
+							<tr><td>Location</td><td id="EditvalLocation"></td></tr>
+							<tr><td>Label</td><td><input type="text" id="EditvalLabel"></input></td></tr>
+							<!--<tr><td>Brand</td><td id="EditvalBrand"></td></tr>-->
+							<tr><td>Brand</td><td><input type="text" id="EditvalBrand"></input></td></tr>
+							<tr><td>PMS Interval</td><td id="EditvalInterval"></td></tr>
+							<tr><td>Model</td><td><input type="text" id="EditvalModel"></input></td></tr>
+							<tr><td>Serial</td><td><input type="text" id="EditvalSerial"></input></td></tr>
+							<tr><td>Purc. date</td><td><input type="date" id="EditvalPurchasedate"></input></td></tr>
+							<tr><td>Supplier</td><td><input type="text"  id="EditvalSupplier"></input></td></tr>
+						</tbody>
+					</table>	
+				</div>
+
+				<div class="IpatungaInlineBlock">
+					<table class="itemActionTable clstablePop">
+						<tbody id="EditActionDetails2">
+							<tr><td id="EditlblDetail1">Detail1</td><td><input type="text" id="EditvalDetail1"></input></td></tr>
+							<tr><td id="EditlblDetail2">Detail2</td><td><input type="text" id="EditvalDetail2"></input></td></tr>
+							<tr><td id="EditlblDetail3">Detail3</td><td><input type="text" id="EditvalDetail3"></input></td></tr>
+							<tr><td id="EditlblDetail4">Detail4</td><td><input type="text" id="EditvalDetail4"></input></td></tr>
+							<tr><td id="EditlblDetail5">Detail5</td><td><input type="text" id="EditvalDetail5"></input></td></tr>
+							<tr><td id="EditlblDetail6">Detail6</td><td><input type="text" id="EditvalDetail6"></input></td></tr>
+							<tr><td id="EditlblDetail7">Detail7</td><td><input type="text" id="EditvalDetail7"></input></td></tr>
+							<tr><td id="EditlblDetail8">Detail8</td><td><input type="text" id="EditvalDetail8"></input></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="spacer15px"></div>
+			<div class="iCenterAdust">			
+				<a href="#" class="IpatungaInlineBlock" data-rel="back" data-role="button" data-icon="back" data-iconpos="left">Close</a>				
+				<!--<a href="#" class="IpatungaInlineBlock" data-role="button" data-icon="refresh" data-iconpos="right">Cancel</a>-->
+				<a href="#" id="itemEditSave" itemId="" class="IpatungaInlineBlock" data-role="button" data-icon="check" data-iconpos="right">Save</a>				
+			</div>
+		</div>
+
+		<div data-role="popup" id="ActionMovePop" data-position-to="window" data-transition='pop' class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>			
+			<h3 class="ui-bar ui-bar-a">MOVE ITEM LOCATION</h3>
+			<div>
+				<div class="clsitemSearch"><label for="itemMoveBrand">Brand/Name</label><input type="text" id="itemMoveBrand" name="itemMoveBrand" disabled></input></div>
+				<div class="clsitemSearch"><label for="itemMoveModel">Model number</label><input type="text" id="itemMoveModel" name="itemMoveModel" disabled></input></div>
+				<div class="clsitemSearch"><label for="itemMoveSerial">Serial number</label><input type="text" id="itemMoveSerial" name="itemMoveSerial" disabled></input></div>							
+				
+				<div class="clsitemSearch"><label for="itemMoveOverLocation">Locaction Over group </label><select id="itemMoveOverLocation" name="itemMoveOverLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemMoveMajorLocation">Locaction Major group</label><select id="itemMoveMajorLocation" name="itemMoveMajorLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemMoveLocation">Location</label><select id="itemMoveLocation" name="itemMoveLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clsitemSearch"><label for="itemMoveDept">Department</label><select id="itemMoveDept" name="itemMoveDept"><option value="1" selected>ALL</option></select></div>					
+				<div class="clsitemSearch"><label for="itemItemGroup">Item group</label><select id="itemMoveItemGroup" name="itemMoveItemGroup"><option value="1" selected>ALL</option></select></div>
+			</div>
+			<div class="spacer15px"></div>
+			<div class="iCenterAdust">
+				<a href="#" class="IpatungaInlineBlock" data-rel="back" data-role="button" data-icon="back" data-iconpos="left">Close</a>
+				<a href="#" class="IpatungaInlineBlock" data-role="button" data-icon="refresh" data-iconpos="right">Cancel</a>
+				<a href="#" id="itemMoveSave" itemId="" class="IpatungaInlineBlock" data-role="button" data-icon="check" data-iconpos="right">Save</a>
+			</div>
+		</div>
+	</div> <!-- End content -->
+   
+	<div data-role="footer">
+		<div class="CopyRight">
+			&copy;2014 <a href="http://www.plantationbay.com/english">Plantation Bay Resort and Spa</a>. All rights reserved. Web hosting, Design and development by 
+			<a href="http://www.plantationbay.com/english" target="_blank">Leox.</a>
+		</div>			
+	</div>
+</div>
+</body>
+</html>

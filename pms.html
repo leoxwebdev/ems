@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+	<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+	<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+	<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+	<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Plantation Bay Resort and Spa</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="css/ems.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script> ( function ( $ ) { "use strict"; var oldIE; if ($('html').is('.ie6, .ie7, .ie8, .ie9')) { oldIE = true; } if (oldIE) { window.location.href="http://plantationbay.com/"; } if ( localStorage ){ if ( !localStorage.emsleo ){ window.location.href="index.html"; } } else { console.log( "Login not allowed"); } }( jQuery ) ); </script>	
+	<script type="text/javascript" src="js/ems.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+<!-- Item Entry Page -->
+<div data-role="page" id="pms">
+	<div class="headContent">
+		<a href="index.html" data-ajax="false" id="inOrout">LOG OUT</a>
+		<div class="headDivs">
+			<div class="pbaylogo"><img src="images/pbaylogo.png"</img></div>
+			<div id="nameDiv"><h1 id="pmsName">Property Management System</h1></div>
+		</div>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="pms.html"><span>PMS</span></a></li>
+			<li><a href="#"><span>JOB ORDER</span></a></li>
+			<li><a href="#"><span>REPORTS</span></a></li>
+			<li><a href="#"><span>ITEM</span></a>
+				<ul class="sub-menu">
+					<li><a href="item.html">Data Entry</a></li>
+					<li><a href="itemlookup.html">Item Lookup</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span>PARAMETERS</span></a>
+				<ul class="sub-menu">
+					<li><a href="itemgroup.html">ITEM GROUP</a></li>
+					<li><a href="locationovergroup.html">OVER GROUP</a></li>
+					<li><a href="locationmajorgroup.html">MAJOR GROUP</a></li>
+					<li><a href="locationgroup.html">LOCATION</a></li>
+					<li><a href="itemdepartment.html">DEPARTMENTS</a></li>
+					<li><a href="setnames.html">ITEM SET NAMES</a></li>
+					<li><a href="#">USERS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div data-role="content">
+	
+		<h2>PREVENTIVE MAINTENANCE</h2>
+		
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">ITEM LOOKUP</h3>
+			<div>
+				<div class="clspmsSearch"><label for="pmsOverLocation">Over group </label><select id="pmsOverLocation" name="pmsOverLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clspmsSearch"><label for="pmsMajorLocation">Building / Major location </label><select id="pmsMajorLocation" name="pmsMajorLocation"><option value="1" selected>ALL</option></select></div>
+				<div class="clspmsSearch"><label for="pmsLocation">Location </label><select id="pmsLocation" name="pmsLocation" disabled><option value="1" selected>ALL</option></select></div>
+				<div class="clspmsSearch"><label for="pmsItemGroup">Item group <span class="iRedtext iBold iTop">* </span></label><select id="pmsItemGroup" name="pmsItemGroup"><option value="1" selected>Select item</option></select></div>
+				<div id="pmsNewBtns" class="btnGroup"><div><button id="pmsSearch" data-icon="search" data-iconpos="right">SEARCH</button></div></div>
+			</div>
+		</div>
+		
+		<div class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">PMS - Search result(s)</h3>			
+			<div class="pmsSchedDiv">	
+				<table class="clstable">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Location</th>
+							<th>Label</th>						
+							<th>Item name</th>
+							<th><a id="pmsDateLink" href="#" style="color:#00FFFF;">PMS date</a></th>
+							<th id="fcsDateHeader" style="display:none;"><a id="fcsDateLink" href="#" style="color:#00FFFF;">FCS date</a></th>
+						</tr>
+					</thead>
+					<tbody id="pmslist">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div data-role="popup" id="itemDetailsPop" data-position-to="window" class="ui-content">			
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+			<div class="iCenter">
+				<div class="IpatungaInlineBlock ui-corner-all custom-corners">
+					<div class="ui-bar ui-bar-a" style="background-color: rgba(1,75,66,0.8);color:#fff;text-shadow:none;">UPDATE PMS STATUS</div>
+					<div  id="pmsStatHead" class="ui-body ui-body-a">
+						<select id="itemStatpop"><option value="Pending" disabled>On Schedule</option><option value="done">Completed</option><option value="overdue" disabled>Overdue</option></select>				
+						<textarea id="pmsRemarks"></textarea>
+					</div>
+					
+					<div class="ui-bar ui-bar-a">Assigned Technicians</div>
+					<div id="assignTechDiv" class="ui-body ui-body-a">
+						<ul id="aircontechAssign" data-role="listview" class="topdown0pointer"></ul>
+						<button id="pmsAddTech" data-mini="true" data-icon="user" data-iconpos="right">show/hide Technicians</button>
+						<input type="text" data-type="search" data-mini="true" placeholder="Type here to search." id="techSearch">						
+					</div>
+					
+					<div class="ui-bar ui-bar-a">Available Technicians</div>
+					<div id="availTech" class="ui-body ui-body-a">
+						<ul id="aircontechLists" data-role="listview" class="topdown0pointer" data-filter="true" data-input="#techSearch"></ul>
+					</div>
+					
+					<div class="ui-bar ui-bar-a">Line Amperes</div>
+					<div class="ui-body ui-body-a">
+						<table class="clstablePop">
+							<tbody>
+								<tr><td>Compressor</td><td><input type="text" id="LineAmpCompressor" data-mini="true"></input></td></tr>
+								<tr><td>AHU</td><td><input type="text" id="LineAmpAHU" data-mini="true"></input></td></tr>
+								<tr><td>ACCU</td><td><input type="text" id="LineAmpACCU" data-mini="true"></input></td></tr>
+							</tbody>
+						</table>
+					</div>					
+				</div>
+				
+				<div class="IpatungaInlineBlock iTop ui-corner-all custom-corners">
+					<div class="ui-bar ui-bar-a">Temperature</div>
+					<div class="ui-body ui-body-a">
+						<table class="clstablePop">
+							<tbody>
+								<tr><td>Ambiant</td><td><input type="text" id="TempAmbiant" data-mini="true"></input></td></tr>
+								<tr><td>Room</td><td><input type="text" id="TempRoom" data-mini="true"></input></td></tr>
+								<tr><td>Supply Air</td><td><input type="text" id="TempSupplyAir" data-mini="true"></input></td></tr>
+								<tr><td>Return Air</td><td><input type="text" id="TempReturnAir" data-mini="true"></input></td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="ui-bar ui-bar-a">Motor Running <br>Load Amperes</div>
+					<div class="ui-body ui-body-a">
+						<table class="clstablePop">
+							<tbody>
+								<tr><td>Compressor</td><td><input type="text" id="MotorAmpCompressor" data-mini="true"></input></td></tr>
+								<tr><td>AHU</td><td><input type="text" id="MotorAmpAHU" data-mini="true"></input></td></tr>
+								<tr><td>ACCU</td><td><input type="text" id="MotorAmpACCU" data-mini="true"></input></td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="ui-bar ui-bar-a">Belts</div>
+					<div class="ui-body ui-body-a">
+						<table class="clstablePop">
+							<tbody>
+								<tr><td>Condition</td><td><input type="text" id="BeltCondition" data-mini="true"></input></td></tr>
+								<tr><td>Alignment</td><td><input type="text" id="BeltAlignment" data-mini="true"></input></td></tr>
+								<tr><td>Tightness</td><td><input type="text" id="BeltTightness" data-mini="true"></input></td></tr>
+							</tbody>
+						</table>
+					</div>					
+				</div>
+				<div class="IpatungaInlineBlock iTop ui-corner-all custom-corners">
+					<div class="ui-bar ui-bar-a">Other Info</div>
+					<div class="ui-body ui-body-a">
+						<table class="clstablePop">
+							<tbody>
+								<tr><td>Discharge pressure</td><td><input type="text" id="DischargePressure" data-mini="true"></input></td></tr>
+								<tr><td>Suction pressure</td><td><input type="text" id="SuctionPressure" data-mini="true"></input></td></tr>
+								<tr><td>Line voltage</td><td><input type="text" id="LineVoltage" data-mini="true"></input></td></tr>
+								<tr><td>Return Air</td><td><input type="text" id="ReturnAir" data-mini="true"></input></td></tr>
+								<tr><td>Noise and vibration</td><td><input type="text" id="NoiseVibration" data-mini="true"></input></td></tr>
+								<tr><td>Compressor oil level</td><td><input type="text" id="CompressorOil" data-mini="true"></input></td></tr>
+								<tr><td>Refrigerant moisture<br> indicator</td><td><input type="text" id="RefrigMoisture" data-mini="true"></input></td></tr>
+								<tr><td>Evaporator coil</td><td><input type="text" id="EvapCoil" data-mini="true"></input></td></tr>
+								<tr><td>Condenser coil</td><td><input type="text" id="CondenserCoil" data-mini="true"></input></td></tr>
+								<tr><td>Condenser fan motor<br>and mountings</td><td><input type="text" id="CondenseMotorMount" data-mini="true"></input></td></tr>
+								<tr><td>Evaporator fan motor<br>and mountings</td><td><input type="text" id="EvapMotorMount" data-mini="true"></input></td></tr>
+								<tr><td>Air filter</td><td id="valInterval"><input type="text" id="AirFilter" data-mini="true"></input></td></tr>
+								<tr><td>Condensate drain<br>pipes</td><td><input type="text" id="CondensateDrainPipe" data-mini="true"></input></td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<button id="savePMSstat" data-inline="true" data-icon="check">Save Status/Changes</button>
+			<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
+		</div>
+
+		<div data-role="popup" id="itemInfoPop" data-position-to="window" class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-inline="true" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+			<h3 class="ui-bar ui-bar-a">ITEM DETAILS</h3>			
+			<!--
+			<table class="clstablePop"></table>
+			-->
+			<div class="iCenterAdust">
+				<div class="IpatungaInlineBlock">
+					<table class="clstablePop">
+						<tbody>
+							<tr><td>Location</td><td id="valpmsDetailLocation"></td></tr>
+							<tr><td>Label</td><td id="valpmsDetailLabel"></td></tr>
+							<tr><td>Brand</td><td id="valpmsDetailBrand"></td></tr>
+							<tr><td>PMS Interval</td><td id="valpmsDetailInterval"></td></tr>
+							<tr><td>Model</td><td id="valpmsDetailModel"></td></tr>
+							<tr><td>Serial</td><td id="valpmsDetailSerial"></td></tr>
+							<tr><td>Purc. date</td><td id="valpmsDetailPurchasedate"></td></tr>
+							<tr><td>Supplier</td><td id="valpmsDetailSupplier"></td></tr>
+						</tbody>
+					</table>	
+				</div>
+
+				<div class="IpatungaInlineBlock">
+					<table class="clstablePop">
+						<tbody>
+							<tr><td id="lblpmsDetail1">Detail1</td><td id="valpmsDetail1"></td></tr>
+							<tr><td id="lblpmsDetail2">Detail2</td><td id="valpmsDetail2"></td></tr>
+							<tr><td id="lblpmsDetail3">Detail3</td><td id="valpmsDetail3"></td></tr>
+							<tr><td id="lblpmsDetail4">Detail4</td><td id="valpmsDetail4"></td></tr>
+							<tr><td id="lblpmsDetail5">Detail5</td><td id="valpmsDetail5"></td></tr>
+							<tr><td id="lblpmsDetail6">Detail6</td><td id="valpmsDetail6"></td></tr>
+							<tr><td id="lblpmsDetail7">Detail7</td><td id="valpmsDetail7"></td></tr>
+							<tr><td id="lblpmsDetail8">Detail8</td><td id="valpmsDetail8"></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="right">Close</a>
+		</div>
+		
+		<div data-role="popup" id="itemPMSDateUpdate" data-position-to="window" class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+			<h3 class="ui-bar ui-bar-a">Set Item PMS Date</h3>
+			<table class="clstblUpdateDate">
+				<tr><td class="iLeft">Location</td><td id="itemLocationPMS">Location</td></tr>
+				<tr><td class="iLeft">Item Group</td><td id="itemGroupNamePMS">Item Group</td></tr>
+				<tr><td class="iLeft">Name/Brand</td><td id="itemNamePMS" name="">Name/Brand</td></tr>
+				<tr><td class="iLeft">PMS Interval(Days)</td><td id="itemGroupDays">PMS Interval(Days)</td></tr>
+				<tr><td class="iLeft">Next PMS date</td><td id="currentItemPMSDate">currentItemPMSDate</td></tr>
+				<tr><td class="iLeft">PMS History</td><td id="pmsDateHistory">PMS History</td></tr>
+				<tr><td class="iLeft">Set last PMS date <br />to update Next PMS Date</td><td><input type="date" id="itemPMSDate" style="font-weight:bold;"></input></td></tr>
+				<tr><td><button  id="savePMSDate" name="" data-icon="check" data-iconpos="right">Save</button></td><td><a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="right">Close</a></td></tr>
+			</table>
+		</div>
+		
+		<div data-role="popup" id="itemFCSDateUpdate" data-position-to="window" class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+			<h3 class="ui-bar ui-bar-a">Aircon Filter Change Date</h3>
+			<table class="clstblUpdateDate">
+				<tr><td class="iLeft">Location</td><td id="itemLocationFCS">Location</td></tr>
+				<tr><td class="iLeft">Item Group</td><td id="itemGroupNameFCS">Item Group</td></tr>
+				<tr><td class="iLeft">Name/Brand</td><td id="itemNameFCS" name="">Name/Brand</td></tr>
+				<tr><td class="iLeft">FCS Interval(Days)</td><td id="filterChangeDays">FCS Interval(Days)</td></tr>
+				<tr><td class="iLeft">Next FCS date</td><td id="currentItemFCSDate"></td></tr>
+				<tr><td class="iLeft">FCS History</td><td id="fcsDateHistory">FCS History</td></tr>
+				<tr><td class="iLeft">Set last FCS date <br />to update Next FCS Date</td><td><input type="date" id="itemFCSDate" style="font-weight:bold;"></input></td></tr>
+				<tr><td><button  id="saveFCSDate" name="" data-icon="check" data-iconpos="right">Save</button></td><td><a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="right">Close</a></td></tr>
+			</table>
+		</div>
+				
+	</div> <!-- End content -->
+   
+	<div data-role="footer">
+		<div class="CopyRight">
+			&copy;2014 <a href="http://www.plantationbay.com/english">Plantation Bay Resort and Spa</a>. All rights reserved. Web hosting, Design and development by 
+			<a href="http://www.plantationbay.com/english" target="_blank">Leox.</a>
+		</div>			
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Item/Equipment Groups</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="css/ems.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script> ( function ( $ ) { "use strict"; var oldIE; if ($('html').is('.ie6, .ie7, .ie8, .ie9')) { oldIE = true; } if (oldIE) { window.location.href="http://plantationbay.com/"; } if ( localStorage ){ if ( !localStorage.emsleo ){ window.location.href="index.html"; } } else { console.log( "Login not allowed"); } }( jQuery ) ); </script>	
+	<script type="text/javascript" src="js/ems.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="ItemGroup" class="home">
+	<div class="headContent">
+		<a href="index.html" data-ajax="false" id="inOrout">LOG OUT</a>
+		<div class="headDivs">
+			<div class="pbaylogo"><img src="images/pbaylogo.png"</img></div>
+			<div id="nameDiv"><h1 id="pmsName">Property Management System</h1></div>
+		</div>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="pms.html"><span>PMS</span></a></li>
+			<li><a href="#"><span>JOB ORDER</span></a></li>
+			<li><a href="#"><span>REPORTS</span></a></li>
+			<li><a href="#"><span>ITEM</span></a>
+				<ul class="sub-menu">
+					<li><a href="item.html">Data Entry</a></li>
+					<li><a href="itemlookup.html">Item Lookup</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span>PARAMETERS</span></a>
+				<ul class="sub-menu">
+					<li><a href="itemgroup.html">ITEM GROUP</a></li>
+					<li><a href="locationovergroup.html">OVER GROUP</a></li>
+					<li><a href="locationmajorgroup.html">MAJOR GROUP</a></li>
+					<li><a href="locationgroup.html">LOCATION</a></li>
+					<li><a href="itemdepartment.html">DEPARTMENTS</a></li>
+					<li><a href="setnames.html">ITEM SET NAMES</a></li>
+					<li><a href="#">USERS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div data-role="content">
+		
+		<h2>ITEM GROUP DATA ENTRY</h2>	
+		
+		<div id="itemgroupListing" class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter" >ITEM GROUP LISTS</h3>
+			<input type="text" data-type="search" id="itemgroupSearch" placeholder="Type keyword to search here!">
+			<div class="ui-body ui-body-a">
+				<ul id="itemgroupLists" data-role="listview" class="topdown0pointer" data-filter="true" data-input="#itemgroupSearch"></ul>
+			</div>
+		</div>
+
+		<div id="itemgroupNew" class="IpatungaInlineBlock VATop iLeft">
+			<h3 class="ui-bar ui-bar-a iCenter">ITEM GROUP DETAILS</h3>
+			<div class="ui-body ui-body-a">
+				<div class="ui-bar ui-bar-a">Item Group Name</div>
+				<input type="text" id="itemgroupName" disabled />
+				<div class="clsInputsMapping"><label for="daysInterval">PMS Interval</label><input type="text" id="daysInterval" name="daysInterval" disabled></input> Days</div>
+				<div class="ui-bar ui-bar-a">Field mapping</div><div class="spacer10px"></div>
+				<div class="clsInputsMapping"><label for="itemDetail1">Detail 1 >>> </label><input type="text" id="itemDetail1" name="itemDetail1" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail2">Detail 2 >>> </label><input type="text" id="itemDetail2" name="itemDetail2" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail3">Detail 3 >>> </label><input type="text" id="itemDetail3" name="itemDetail3" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail4">Detail 4 >>> </label><input type="text" id="itemDetail4" name="itemDetail4" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail5">Detail 5 >>> </label><input type="text" id="itemDetail5" name="itemDetail5" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail6">Detail 6 >>> </label><input type="text" id="itemDetail6" name="itemDetail6" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail7">Detail 7 >>> </label><input type="text" id="itemDetail7" name="itemDetail7" disabled></input></div>
+				<div class="clsInputsMapping"><label for="itemDetail8">Detail 8 >>> </label><input type="text" id="itemDetail8" name="itemDetail8" disabled></input></div>				
+				<div id="itemgroupNewBtns" class="btnGroup">
+					<div><button id="itemgroupAdd">Add</button></div>
+					<div><button id="itemgroupEdit" disabled>Edit</button></div>
+					<div><button id="itemgroupDelete" disabled>Delete</button></div>
+					<div><button id="itemgroupCancel" disabled>Cancel</button></div>
+				</div>
+			</div>
+		</div>	
+
+	</div> <!-- End content -->
+	<div data-role="footer">
+		<div class="CopyRight">
+			&copy;2014 <a href="http://www.plantationbay.com">Plantation Bay Resort and Spa</a>. All rights reserved.
+			<a href="http://www.plantationbay.com" target="_blank">Design and development by Leox.</a>
+		</div>			
+	</div>   
+</div>
+</body>
+</html>

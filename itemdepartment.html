@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Item/Equipment Groups</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<link rel="stylesheet" href="css/ems.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script> ( function ( $ ) { "use strict"; var oldIE; if ($('html').is('.ie6, .ie7, .ie8, .ie9')) { oldIE = true; } if (oldIE) { window.location.href="http://plantationbay.com/"; } if ( localStorage ){ if ( !localStorage.emsleo ){ window.location.href="index.html"; } } else { console.log( "Login not allowed"); } }( jQuery ) ); </script>	
+	<script type="text/javascript" src="js/ems.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+<!-- Departments -->
+<div data-role="page" id="ItemDepartment" class="home">
+	<div class="headContent">
+		<a href="index.html" data-ajax="false" id="inOrout">LOG OUT</a>
+		<div class="headDivs">
+			<div class="pbaylogo"><img src="images/pbaylogo.png"</img></div>
+			<div id="nameDiv"><h1 id="pmsName">Property Management System</h1></div>
+		</div>
+	</div>
+	<nav>
+		<ul class="menu">
+			<li><a href="pms.html"><span>PMS</span></a></li>
+			<li><a href="#"><span>JOB ORDER</span></a></li>
+			<li><a href="#"><span>REPORTS</span></a></li>
+			<li><a href="#"><span>ITEM</span></a>
+				<ul class="sub-menu">
+					<li><a href="item.html">Data Entry</a></li>
+					<li><a href="itemlookup.html">Item Lookup</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><span>PARAMETERS</span></a>
+				<ul class="sub-menu">
+					<li><a href="itemgroup.html">ITEM GROUP</a></li>
+					<li><a href="locationovergroup.html">OVER GROUP</a></li>
+					<li><a href="locationmajorgroup.html">MAJOR GROUP</a></li>
+					<li><a href="locationgroup.html">LOCATION</a></li>
+					<li><a href="itemdepartment.html">DEPARTMENTS</a></li>
+					<li><a href="setnames.html">ITEM SET NAMES</a></li>
+					<li><a href="#">USERS</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div data-role="content">
+			<h2>DEPARTMENT DATA ENTRY</h2>	
+			<div id="deptListing" style="clear: left;" class="IpatungaInlineBlock VATop iLeft">
+				<h3 class="ui-bar ui-bar-a iCenter">DEPARTMENT LISTS</h3>
+				<input type="text" data-type="search" id="locDeptSearch" placeholder="Type keyword to search here!">
+				<div class="ui-body ui-body-a">
+					<ul id="DeptLists" data-role="listview" class="topdown0pointer" data-filter="true" data-input="#locDeptSearch"></ul>
+				</div>
+			</div>
+			
+			<div id="deptNew" class="IpatungaInlineBlock VATop iLeft">
+				<h3 class="ui-bar ui-bar-a iCenter">DEPARTMENT DETAILS</h3>
+				<div class="ui-body ui-body-a">
+					<div class="iLeft">
+						<label for="deptName">Department Name</label>
+						<input type="text" id="deptName" disabled />
+					</div>
+					<div id="deptNewBtns" class="btnGroup">
+					
+						<!-- find out: there is a way to remove divs below and use jq class ui-**, forget it, find out later; -->
+						<div><button id="deptAdd" disabled>Add</button></div>
+						<div><button id="deptEdit" disabled>Edit</button></div>
+						<div><button id="deptDelete" disabled>Delete</button></div>
+						<div><button id="deptCancel">Cancel</button></div>
+					</div>
+				</div>
+			</div>	
+			<!--
+			<div id="deptListing" class="ui-corner-all custom-corners">
+				<div class="ui-bar ui-bar-a"><h2>DEPARTMENT LISTS</h2></div>
+				<input type="text" data-type="search" id="locDeptSearch" placeholder="Type keyword to search here!">
+				<div class="ui-body ui-body-a">
+					<ul id="DeptLists" data-role="listview" class="topdown0pointer" data-filter="true" data-input="#locDeptSearch"></ul>
+				</div>
+			</div>
+			
+			<div id="deptNew" class="ui-corner-all custom-corners">
+				<div class="ui-bar ui-bar-a">
+					<h2>DEPARTMENT DETAILS</h2>
+				</div>
+				<div class="ui-body ui-body-a">
+					<div class="iLeft">
+						<label for="deptName">Department Name</label>
+						<input type="text" id="deptName" disabled />
+					</div>
+					<div id="deptNewBtns" class="btnGroup">
+					-->
+						<!-- find out: there is a way to remove divs below and use jq class ui-**, forget it, find out later; -->
+	<!--					<div><button id="deptAdd" disabled>Add</button></div>
+						<div><button id="deptEdit" disabled>Edit</button></div>
+						<div><button id="deptDelete" disabled>Delete</button></div>
+						<div><button id="deptCancel">Cancel</button></div>
+					</div>
+				</div>
+			</div>	
+	-->
+	</div> <!-- End content -->
+	
+	<div data-role="footer">
+		<div class="CopyRight">
+			&copy;2014 <a href="http://www.plantationbay.com/english">Plantation Bay Resort and Spa</a>. All rights reserved. Web hosting, Design and development by 
+			<a href="http://www.plantationbay.com/english" target="_blank">Leox.</a>
+		</div>			
+	</div>   
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Add/Edit/Save</title>
+	<link rel='stylesheet' href='sample.css' />
+	
+	<!--<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />-->
+	<link rel="stylesheet" href="sample.css">
+	<!--<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+	<script type="text/javascript" src="js/mustache1.3.0/mustache.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>	-->
+</head>
+<body>
+	<h1>Sample Order</h1>  
+	<ul id="orders"></ul>
+	
+	<template id="order-template">
+		<li data-id="{{id}}">
+			<p>
+				<strong>Name:</strong>
+				<span class="noedit name">{{name}}</span>
+				<input class="edit name" />
+			</p>
+			<p>
+				<strong>Drink:</strong>
+				<span class="noedit drink">{{drink}}</span>
+				<input class="edit drink"/>
+			</p>
+			<button data-id='{{id}}' class='remove'>X</button>
+			<button class="editOrder noedit">Edit</button>
+			<button class="saveEdit edit">Save</button>
+			<button class="cancelEdit edit">Cancel</button>
+		</li>
+	</template>
+	<h4>Add a Department</h4>
+	<p>name: <input type="text" id="name"></input></p>
+	<p>drink: <input type="text" id="drink"></input></p>
+	<button id="add-order">Add!</button>
+	
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+	<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+	<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+	<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+	<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Equipment Management System - Plantation Bay Resort and Spa</title>
+	<link rel="Shortcut Icon" href="http://plantationbay.com/wp-content/themes/plantaccess/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+	<!--<link rel="stylesheet" href="css/ems.css">-->
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/chart.js"></script>
+	<script type="text/javascript" src="js/highcharts.js"></script>
+	<script type="text/javascript" src="js/exporting.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.3.min.js"></script>
+	
+	<script>
+		(function ($) {
+			"use strict";
+			// Detecting IE
+			var oldIE;
+			if ($('html').is('.ie6, .ie7, .ie8, .ie9')) {
+				oldIE = true;
+			}
+			if (oldIE) {
+				window.location.href="http://plantationbay.com/";
+			}
+		}(jQuery) );
+		
+		
+	</script>	
+</head>
+<body>
+
+
+<div data-role="page" id="index">
+  <div data-role="header">
+  <h1>Slide 5</h1>
+  </div>
+
+  <div id="divmain" data-role="main" class="ui-content" style="height:40%">
+
+   <a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow                 ui-btn-inline" data-transition="pop">Basic Popup</a>
+<div data-role="popup" id="popupBasic">
+ <div data-role="tabs" id="tabs">
+  <div data-role="navbar">
+    <ul>
+      <li><a id="firstTab" href="#one" value="verify">one</a></li>
+      <li><a href="#two" data-ajax="false">two</a></li>
+      <li><a href="#three" data-ajax="false">three</a></li>
+      <li><a href="#four" data-ajax="false">four</a></li>
+    </ul>
+  </div>
+  <div id="one" class="ui-body-d ui-content">
+        <div id="container1" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+    <h1 id="tab1">First tab contents</h1>
+  </div>
+
+  <div id="two">
+    <div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+    <h1 id="tab1">Second tab contents</h1>
+  </div>
+
+  <div id="three" class="ui-body-d ui-content">
+       <div id="container3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    <h1>Third tab contents</h1>
+  </div>
+
+  <div id="four" class="ui-body-d ui-content">
+    <div id="container4" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+    <h1>Fourth tab contents</h1>
+  </div>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
